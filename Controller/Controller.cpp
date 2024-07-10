@@ -8,10 +8,11 @@
 #include "D:\Projects\Option2DynamicDllLoadingInRunTime\CommonInterfaces\DemoComminInterfaces.h"
 IUnknown* CreateObjectFromYaml(const std::string& cls_to_create , const std::string& interface_name ) {
     // Load YAML file
-    YAML::Node config = YAML::LoadFile("config.yaml");
+    YAML::Node config = YAML::LoadFile("D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config.yaml");
 
     // Find DLL path for the given object ID
     std::string dllPath;
+    std::string class_name;
     try {
         dllPath = config[cls_to_create]["dllPath"].as<std::string>();
     }
@@ -26,7 +27,7 @@ IUnknown* CreateObjectFromYaml(const std::string& cls_to_create , const std::str
     }
 
     // Get the function address for object creation
-    typedef HRESULT(*CreateObjectFunc)(REFIID riid, void** ppv);
+    typedef HRESULT(*CreateObjectFunc)(std::string riid, void** ppv);
     CreateObjectFunc createObject = (CreateObjectFunc)GetProcAddress(hModule, "CreateObject");
     if (!createObject) {
         FreeLibrary(hModule);
@@ -35,7 +36,7 @@ IUnknown* CreateObjectFromYaml(const std::string& cls_to_create , const std::str
 
     // Create the object
     IUnknown* pUnknown = nullptr;
-    HRESULT hr = createObject(__uuidof(IUnknown), (void**)&pUnknown);
+    HRESULT hr = createObject(interface_name, (void **) & pUnknown);
     if (FAILED(hr)) {
         FreeLibrary(hModule);
         throw std::runtime_error("Failed to create object");
@@ -48,11 +49,11 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    ISayHello* theSayHello = (ISayHello * )CreateObjectFromYaml("Algo1_v1", "ISayHello");
+    ISayHello* theSayHello = (ISayHello * )CreateObjectFromYaml("Algo1_v1", "SayHello");
 
     theSayHello->Hello();
 
-     theSayHello->Release();
+    theSayHello->Release();
 
 
 

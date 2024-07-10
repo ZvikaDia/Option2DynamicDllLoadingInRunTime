@@ -131,6 +131,9 @@
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="demo_config.yaml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

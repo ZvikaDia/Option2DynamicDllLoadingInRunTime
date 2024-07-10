@@ -35,5 +35,8 @@
     <ClCompile Include="SayHelloImplAlgo1_v1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="create_object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

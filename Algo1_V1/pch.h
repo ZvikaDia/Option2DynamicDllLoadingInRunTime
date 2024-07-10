@@ -10,4 +10,11 @@
 // add headers that you want to pre-compile here
 #include "framework.h"
 
+
+#include <unknwn.h>
+#include <Windows.h>
+#include <string>
+#include <stdexcept>
+#include <iostream>
+
 #endif //PCH_H
