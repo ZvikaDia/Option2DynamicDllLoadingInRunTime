@@ -1,0 +1,7 @@
+Algo1_v1:
+    dllPath: D:\Projects\Option2DynamicDllLoadingInRunTime\x64\Debug\Algo1_V1.dll
+common_infra:
+    dllPath: D:\Projects\Option2DynamicDllLoadingInRunTime\x64\Debug\common_v1.dll    
+    
+
+
