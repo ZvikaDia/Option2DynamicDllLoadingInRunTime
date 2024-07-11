@@ -20,6 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="demo_config.yaml" />
+    <None Include="demo_config_permutation_2.yaml" />
+    <None Include="demo_config_permutation_1.yaml" />
   </ItemGroup>
 </Project>

@@ -109,7 +109,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>D:\dev_tools\yaml-cpp-master\Build\Debug\yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>D:\dev_tools\yaml-cpp-master\Build\Debug\yaml-cppd.lib;%(AdditionalDependencies);D:\Projects\Option2DynamicDllLoadingInRunTime\x64\Debug\ComSupport.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -132,7 +132,8 @@
     <ClCompile Include="Controller.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="demo_config.yaml" />
+    <None Include="demo_config_permutation_1.yaml" />
+    <None Include="demo_config_permutation_2.yaml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

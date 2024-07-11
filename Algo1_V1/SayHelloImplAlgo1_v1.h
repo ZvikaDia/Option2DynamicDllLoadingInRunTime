@@ -10,5 +10,12 @@
 
 class SayHelloImplAlgo1_v1 : public ISayHello
 {
+public: 
+	HRESULT QueryInterface(REFIID riid, LPVOID* ppvObj);
+	ULONG AddRef();
+	ULONG Release();
+	void Hello();
+private:
+	long m_cRef = 0 ;
 };
 

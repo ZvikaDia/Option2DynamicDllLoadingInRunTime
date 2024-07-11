@@ -6,48 +6,13 @@
 #include <stdexcept>
 #include <iostream>
 #include "D:\Projects\Option2DynamicDllLoadingInRunTime\CommonInterfaces\DemoComminInterfaces.h"
-IUnknown* CreateObjectFromYaml(const std::string& cls_to_create , const std::string& interface_name ) {
-    // Load YAML file
-    YAML::Node config = YAML::LoadFile("D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config.yaml");
-
-    // Find DLL path for the given object ID
-    std::string dllPath;
-    std::string class_name;
-    try {
-        dllPath = config[cls_to_create]["dllPath"].as<std::string>();
-    }
-    catch (const YAML::Exception& e) {
-        throw std::runtime_error("Failed to find DLL path for object ID: " + cls_to_create);
-    }
-
-    // Load the DLL
-    HMODULE hModule = LoadLibraryA(dllPath.c_str());
-    if (!hModule) {
-        throw std::runtime_error("Failed to load DLL: " + dllPath);
-    }
-
-    // Get the function address for object creation
-    typedef HRESULT(*CreateObjectFunc)(std::string riid, void** ppv);
-    CreateObjectFunc createObject = (CreateObjectFunc)GetProcAddress(hModule, "CreateObject");
-    if (!createObject) {
-        FreeLibrary(hModule);
-        throw std::runtime_error("Failed to get CreateObject function from DLL");
-    }
-
-    // Create the object
-    IUnknown* pUnknown = nullptr;
-    HRESULT hr = createObject(interface_name, (void **) & pUnknown);
-    if (FAILED(hr)) {
-        FreeLibrary(hModule);
-        throw std::runtime_error("Failed to create object");
-    }
-
-    return pUnknown;
-}
+#include "D:\Projects\Option2DynamicDllLoadingInRunTime\ComSupport\comsupport.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Starting!\n";
+
+    _putenv("demo_configuration_file=D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config_permutation_1.yaml");
 
     ISayHello* theSayHello = (ISayHello * )CreateObjectFromYaml("Algo1_v1", "SayHello");
 
@@ -55,7 +20,13 @@ int main()
 
     theSayHello->Release();
 
+    _putenv("demo_configuration_file=D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config_permutation_2.yaml");
 
+    ISayHello* theSayHello2 = (ISayHello*)CreateObjectFromYaml("Algo1_v2", "SayHello");
+
+    theSayHello2->Hello();
+
+    theSayHello2->Release();
 
 
 }
