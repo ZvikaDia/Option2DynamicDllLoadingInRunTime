@@ -93,13 +93,13 @@ def main(sln_path, config_path):
             # For now, we'll continue with the next project
             continue
 
-def main(sln_path):
-    projects, dependencies = parse_sln_file(sln_path)
-    sorted_guids = topological_sort(projects, dependencies)
-
-    print("Projects in build order:")
-    for guid in reversed(sorted_guids):
-        print(f"- {projects[guid]['name']} ({projects[guid]['path']})")
+# def main(sln_path):
+#     projects, dependencies = parse_sln_file(sln_path)
+#     sorted_guids = topological_sort(projects, dependencies)
+#
+#     print("Projects in build order:")
+#     for guid in reversed(sorted_guids):
+#         print(f"- {projects[guid]['name']} ({projects[guid]['path']})")
 
 
 if __name__ == "__main__":
