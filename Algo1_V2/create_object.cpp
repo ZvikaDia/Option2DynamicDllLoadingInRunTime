@@ -7,7 +7,7 @@ extern "C" {
 
 HRESULT CreateObject(std::string pObjectName , void** ppv)
 {
-	if (pObjectName == "v2")
+	if (pObjectName == "v1")
 	{
 		ISayHello * ret_value = new v1();
 
