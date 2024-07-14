@@ -14,7 +14,13 @@ int main()
 
     _putenv("demo_configuration_file=D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config_permutation_1.yaml");
 
-    ISayHello* theSayHello = (ISayHello * )CreateObjectFromYaml("Algo1_v1", "SayHello");
+    ISayHello* theSayHello = (ISayHello * )CreateObjectFromYaml("Algo1", "v1");
+
+    theSayHello->Hello();
+
+    theSayHello->Release();
+
+    theSayHello = (ISayHello*)CreateObjectFromYaml("Algo1", "v2");
 
     theSayHello->Hello();
 
@@ -22,7 +28,7 @@ int main()
 
     _putenv("demo_configuration_file=D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config_permutation_2.yaml");
 
-    ISayHello* theSayHello2 = (ISayHello*)CreateObjectFromYaml("Algo1_v2", "SayHello");
+    ISayHello* theSayHello2 = (ISayHello*)CreateObjectFromYaml("Algo2", "v1");
 
     theSayHello2->Hello();
 

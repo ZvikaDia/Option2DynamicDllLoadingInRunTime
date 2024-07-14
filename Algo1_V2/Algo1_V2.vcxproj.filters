@@ -21,7 +21,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SayHelloImplAlgo1_v2.h">
+    <ClInclude Include="v1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SayHelloImplAlgo1_v2.cpp">
+    <ClCompile Include="v1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="create_object.cpp">
