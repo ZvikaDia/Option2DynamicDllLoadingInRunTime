@@ -1,12 +1,9 @@
 #pragma once
-class ConcreateCommonInfra :public ICommomInfrastructure
-{
-public:
-	HRESULT QueryInterface(REFIID riid, LPVOID* ppvObj);
-	ULONG AddRef();
-	ULONG Release();
-	std::string get_text(std::string pName);
 
-private:
-	long m_cRef = 0;
-};
+#ifdef _AUTOSG_EXPORTS
+#define AUTOSG_DECLSP   __declspec(dllexport) 
+#else
+#define AUTOSG_DECLSP   __declspec(dllimport)
+#endif
+
+AUTOSG_DECLSP void call_common_method_same_name();

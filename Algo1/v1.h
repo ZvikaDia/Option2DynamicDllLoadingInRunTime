@@ -5,17 +5,11 @@
 #include <stdexcept>
 #include <iostream>
 
-#include "D:\Projects\Option2DynamicDllLoadingInRunTime\CommonInterfaces\DemoComminInterfaces.h" 
 
+#ifdef _AUTOSG_EXPORTS_ALG
+#define AUTOSG_DECLSP_ALG   __declspec(dllexport) 
+#else
+#define AUTOSG_DECLSP_ALG   __declspec(dllimport)
+#endif
 
-class v1 : public ISayHello
-{
-public: 
-	HRESULT QueryInterface(REFIID riid, LPVOID* ppvObj);
-	ULONG AddRef();
-	ULONG Release();
-	void Hello();
-private:
-	long m_cRef = 0 ;
-};
-
+AUTOSG_DECLSP_ALG void call_Elad_test_Algo1();

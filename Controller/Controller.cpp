@@ -1,38 +1,22 @@
 // Controller.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <Windows.h>
-#include <yaml-cpp/yaml.h>
+//#include <yaml-cpp/yaml.h>
 #include <string>
 #include <stdexcept>
 #include <iostream>
-#include "D:\Projects\Option2DynamicDllLoadingInRunTime\CommonInterfaces\DemoComminInterfaces.h"
-#include "D:\Projects\Option2DynamicDllLoadingInRunTime\ComSupport\comsupport.h"
-
+#include <v1.h>
+#include <v2.h>
 int main()
 {
     std::cout << "Starting!\n";
 
-    _putenv("demo_configuration_file=D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config_permutation_1.yaml");
+    call_Elad_test_Algo1();
 
-    ISayHello* theSayHello = (ISayHello * )CreateObjectFromYaml("Algo1", "v1");
+    call_Elad_test_Algo2();
 
-    theSayHello->Hello();
+    std::cout << "Ending!\n";
 
-    theSayHello->Release();
-
-    theSayHello = (ISayHello*)CreateObjectFromYaml("Algo1", "v2");
-
-    theSayHello->Hello();
-
-    theSayHello->Release();
-
-    _putenv("demo_configuration_file=D:/Projects/Option2DynamicDllLoadingInRunTime/Controller/demo_config_permutation_2.yaml");
-
-    ISayHello* theSayHello2 = (ISayHello*)CreateObjectFromYaml("Algo2", "v1");
-
-    theSayHello2->Hello();
-
-    theSayHello2->Release();
 
 
 }

@@ -1,47 +1,11 @@
 #include "pch.h"
-#include "D:\Projects\Option2DynamicDllLoadingInRunTime\CommonInterfaces\commom_infrastructure.h"
+
+#define _AUTOSG_EXPORTS
 
 #include "ConcreateCommonInfra.h"
 
-HRESULT ConcreateCommonInfra::QueryInterface(REFIID   riid,
-    LPVOID* ppvObj)
+void call_common_method_same_name()
 {
-    // Always set out parameter to NULL, validating it first.
-    /*
-    if (!ppvObj)
-        return E_INVALIDARG;
-    *ppvObj = NULL;
-    if (riid == IID_IUnknown || riid == IID_IMAPIProp ||
-        riid == IID_IMAPIStatus)
-    {
-        // Increment the reference count and return the pointer.
-        *ppvObj = (LPVOID)this;
-        AddRef();
-        return NOERROR;
-    }
-    return E_NOINTERFACE;
-    */
-    return S_OK;
+	std::cout << "call_common_method_same_name from v1\n";
 }
 
-ULONG ConcreateCommonInfra::AddRef()
-{
-    return InterlockedIncrement(&m_cRef);
-}
-ULONG ConcreateCommonInfra::Release()
-{
-    // Decrement the object's internal counter.
-    ULONG ulRefCount = InterlockedDecrement(&m_cRef);
-    if (0 == ulRefCount)
-    {
-        delete this;
-    }
-    return ulRefCount;
-}
-
-std::string ConcreateCommonInfra::get_text(std::string pName)
-{
-    std::string ret_value = "Hello in english " + pName;
-    return ret_value;
-
-}

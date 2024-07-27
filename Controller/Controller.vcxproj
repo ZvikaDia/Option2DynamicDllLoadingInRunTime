@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);YAML_CPP_STATIC_DEFINE</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\dev_tools\yaml-cpp-master\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\dev_tools\yaml-cpp-master\include;D:\Projects\Option2DynamicDllLoadingInRunTime\Algo2;D:\Projects\Option2DynamicDllLoadingInRunTime\Algo1</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>D:\dev_tools\yaml-cpp-master\Build\Debug\yaml-cppd.lib;%(AdditionalDependencies);D:\Projects\Option2DynamicDllLoadingInRunTime\x64\Debug\ComSupport.lib</AdditionalDependencies>
+      <AdditionalDependencies>D:\dev_tools\yaml-cpp-master\Build\Debug\yaml-cppd.lib;%(AdditionalDependencies);"D:\Projects\Option2DynamicDllLoadingInRunTime\x64\Debug\Algo1.lib";"D:\Projects\Option2DynamicDllLoadingInRunTime\x64\Debug\Algo2.lib"</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
