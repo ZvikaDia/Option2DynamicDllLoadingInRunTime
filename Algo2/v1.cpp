@@ -42,6 +42,10 @@ ULONG v1::Release()
 
 void v1::Hello()
 {
+    //Calls the hello c exported function 
+    return legacy_hello_function ()
+}
+
     ICommomInfrastructure* theCommomInfrastructure = (ICommomInfrastructure*)CreateObjectFromYaml("common_infra", "ICommomInfrastructure");
 
     std::string theblese = theCommomInfrastructure->get_text("monica bellucci");
