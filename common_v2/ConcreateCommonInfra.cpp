@@ -5,5 +5,5 @@
 
 void call_common_method_same_name()
 {
-	std::cout << "call_common_method_same_name from v1\n";
+	std::cout << "call_common_method_same_name from v2\n";
 }
